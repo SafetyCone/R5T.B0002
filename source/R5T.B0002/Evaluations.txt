@@ -1,0 +1,23 @@
+# MISSION: Type name values (just the name, not the namespace), type name operations (IsInterface).
+
+# EVALUATIONS
+
+Examples of what extension method bases were included but might not have been, were not included, might have been, or were not included serve to help define the library.
+
+For examples of extension method bases that were included, just see the list of extension method bases within the project.
+
+All extension method bases in the project or in this listing have been evaluated.
+
+
+# Might not have been included, but are:
+
+
+
+# Might have been included, but were not:
+
+* INamespacedTypeName - There will be a separate repository for the composite of namespace and type name. This was done since there are too many type name-specific extensions, and too many namespace specific extensions.
+
+
+# Not included:
+
+

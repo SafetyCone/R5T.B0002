@@ -1,0 +1,3 @@
+R5T.B0002.X002 - A menagerie of namespace names, both valid and invalid.
+
+GOALS:

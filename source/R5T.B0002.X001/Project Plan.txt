@@ -1,0 +1,7 @@
+R5T.B0002.X001 - Recommended extensions.
+
+# Functionalities
+
+* System namespace name values.
+* Microsoft namespace name values.
+* Namespace name operations.

@@ -1,0 +1,3 @@
+R5T.B0002.B000 - InvalidNamespaceName and related extension method bases.
+
+GOALS:
