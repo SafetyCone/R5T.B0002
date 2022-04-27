@@ -4,6 +4,8 @@ using System.Linq;
 
 using R5T.B0002;
 
+using R5T.Magyar;
+
 using Instances = R5T.B0002.X001.Instances;
 
 
@@ -102,13 +104,48 @@ namespace System
             return output;
         }
 
+        public static bool HasMultipleTokens(this INamespaceNameOperator _,
+            string namespaceName)
+        {
+            // If there is a token separator, there are at least two tokens.
+            var output = namespaceName.Contains(_.TokenSeparator_Character());
+            return output;
+        }
+
+        /// <summary>
+        /// Tests whether the namespace <paramref name="namespaceName"/> is reachable from <paramref name="baseNamespaceName"/>.
+        /// "Reachable" is defined as <paramref name="namespaceName"/> can be found within <paramref name="baseNamespaceName"/>, meaning that <paramref name="namespaceName"/> is the same namespace or a parent namespace of <paramref name="baseNamespaceName"/>.
+        /// <para>See also: <seealso cref="IsInNamespace(INamespaceNameOperator, string, string)"/>.</para>
+        /// </summary>
+        public static bool IsReachableFrom(this INamespaceNameOperator _,
+            string namespaceName,
+            string baseNamespaceName)
+        {
+            var baseNameContains = baseNamespaceName.Contains(namespaceName);
+
+            return baseNameContains;
+        }
+
         /// <summary>
         /// Tests the the <paramref name="namespaceName"/> is in the <paramref name="baseNamespaceName"/>.
+        /// "In" is defined as <paramref name="namespaceName"/> starts with <paramref name="baseNamespaceName"/>, meaning that <paramref name="namespaceName"/> is the same namespace or a sub-namespace of <paramref name="baseNamespaceName"/>.
+        /// <para>See also: <seealso cref="IsReachableFrom(INamespaceNameOperator, string, string)"/></para>
         /// </summary>
         public static bool IsInNamespace(this INamespaceNameOperator _,
             string namespaceName,
             string baseNamespaceName)
         {
+            if(baseNamespaceName == Instances.NamespaceName.NoNamespacesNamespaceName())
+            {
+                return false;
+            }
+            
+            // Short-circuit here, even though the following logic would be able to handle the all namespaces namespace name "" and return true.
+            if(baseNamespaceName == Instances.NamespaceName.AllNamespacesNamespaceName())
+            {
+                return true;
+            }
+
             var isAtLeastTheSameLength = Instances.StringOperator.IsAtLeastTheSameLength(
                 namespaceName,
                 baseNamespaceName);
@@ -143,6 +180,16 @@ namespace System
         {
             var output = namespaceName1 == namespaceName2;
             return output;
+        }
+
+        public static WasFound<string[]> MultipleTokensWereFound(this INamespaceNameOperator _,
+            string namespaceName)
+        {
+            var tokens = _.Tokenize(namespaceName);
+
+            var exists = tokens.HasMoreThanOne();
+
+            return WasFound.From(exists, tokens);
         }
 
         public static string[] Tokenize(this INamespaceNameOperator _,
