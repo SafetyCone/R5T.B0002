@@ -11,13 +11,13 @@ namespace System
         /// <inheritdoc cref="NamespaceNames.AllNamespacesNamespaceName"/>
         public static string AllNamespacesNamespaceName(this INamespaceName _)
         {
-            return NamespaceNames.AllNamespacesNamespaceName;
+            return NamespaceNames.Instance.AllNamespacesNamespaceName;
         }
 
         /// <inheritdoc cref="NamespaceNames.NoNamespacesNamespaceName"/>
         public static string NoNamespacesNamespaceName(this INamespaceName _)
         {
-            return NamespaceNames.NoNamespacesNamespaceName;
+            return NamespaceNames.Instance.NoNamespacesNamespaceName;
         }
     }
 }

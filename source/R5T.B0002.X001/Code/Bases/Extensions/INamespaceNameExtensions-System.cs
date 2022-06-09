@@ -10,27 +10,27 @@ namespace System
     {
         public static string System(this INamespaceName _)
         {
-            return NamespaceNames.System;
+            return NamespaceNames.Instance.System;
         }
 
         public static string System_IO(this INamespaceName _)
         {
-            return NamespaceNames.System_IO;
+            return NamespaceNames.Instance.System_IO;
         }
 
         public static string System_Linq(this INamespaceName _)
         {
-            return NamespaceNames.System_Linq;
+            return NamespaceNames.Instance.System_Linq;
         }
 
         public static string System_Threading(this INamespaceName _)
         {
-            return NamespaceNames.System_Threading;
+            return NamespaceNames.Instance.System_Threading;
         }
 
         public static string System_Threading_Tasks(this INamespaceName _)
         {
-            return NamespaceNames.System_Threading_Tasks;
+            return NamespaceNames.Instance.System_Threading_Tasks;
         }
     }
 }
