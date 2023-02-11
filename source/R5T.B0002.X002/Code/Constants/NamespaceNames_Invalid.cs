@@ -1,7 +1,5 @@
 ﻿using System;
 
-using Strings = R5T.B0000.X001.Strings;
-
 
 namespace R5T.B0002.X002
 {
@@ -10,7 +8,7 @@ namespace R5T.B0002.X002
     /// </summary>
     public static partial class NamespaceNames_Invalid
     {
-        public static string Empty => Strings.Empty;
+        public static string Empty => R5T.Z0000.Instances.Strings.Empty;
 
         public static string StartsWithANumber => "2R5T";
         public static string StartsWithNumbers => "22R5T";
